@@ -1,0 +1,18 @@
+version: '2.4'
+services:
+  bludit:
+    image: pdacity/bludit_docker
+    ports:
+      - 8080:80
+    volumes:
+      - html:/var/www           # Bludit home dir
+      - nginx:/etc/nginx        # Nginx config dir
+    restart: always
+    cpu_shares: 50
+    mem_limit: 64m
+    memswap_limit: 64m
+volumes:
+  html: {}
+  nginx: {}
+networks:
+  default:
